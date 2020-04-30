@@ -1,9 +1,16 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import ReactDOM from 'react-dom';
 import App from './App';
+import { render, fireEvent } from '@testing-library/react';
+import '@testing-library/jest-dom/extend-expect';
+import axiosMock from 'axios';
 
-test('deve renderizar o componente sem erros', () => {
-  const { getByText } = render(<App />);
-  const linkElement = getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+describe('Teste do componente de conversão de moedas', () => {
+
+  it('deve renderizar o componente sem erros', () => {
+    const div = document.createElement('div');
+    ReactDOM.render(<App />, div);
+    ReactDOM.unmountComponentAtNode(div);
+  });
+
 });
